@@ -19,7 +19,7 @@
   <h2 class="text-center">Abstract</h2>
   <div class="mt-3" style="max-width:900px; margin:auto; font-size:1.1em;">
     
-We present a novel framework for visual navigation that integrates Feature-Uncertainty Visual Perception (FUVP) with Cost-Uncertainty Imitation Learning (CUIL). FUVP fuses multimodal visual information-RGB features, semantic segmentation, and object detection-into a ground-projected grid map while explicitly modeling feature uncertainty through Bayesian methods. This approach creates a spatially consistent allocentric representation enhanced by temporal transformers that capture complex dependencies across sequential frames. The system incorporates a rotational sampling mechanism and cross-correlation technique to facilitate robust pose estimation in unknown environments. CUIL complements this perception system with a probabilistic action modeling architecture that quantifies decision uncertainty by representing action costs as Gaussian distributions. Our policy network incorporates an auxiliary inflection point prediction task that identifies topologically significant locations, enabling dynamic loss weighting that prioritizes learning at critical decision points. The combined framework addresses uncertainty propagation throughout the perception-action pipeline. Experimental results demonstrate that this integrated approach significantly improves navigation performance in complex, unexplored environments by maintaining appropriate uncertainty estimates, enhancing both environmental representation and decision-making reliability without reliance on external positioning systems.
+We present a novel framework for visual navigation that integrates Feature-Uncertainty Visual Perception (FUVP) with Cost-Uncertainty Imitation Learning (CUIL). FUVP fuses multimodal visual information-RGB features, semantic segmentation, and object detection-into a ground-projected grid map while explicitly modeling feature uncertainty through Bayesian methods. This approach creates a spatially consistent allocentric representation enhanced by temporal transformers that capture complex dependencies across sequential frames. CUIL complements this perception system with a probabilistic action modeling architecture that quantifies decision uncertainty by representing action costs as Gaussian distributions. Our policy network incorporates an auxiliary inflection point prediction task that identifies topologically significant locations, enabling dynamic loss weighting that prioritizes learning at critical decision points. The combined framework addresses uncertainty propagation throughout the perception-action pipeline. Experimental results demonstrate that this integrated approach significantly improves navigation performance in complex, unexplored environments by maintaining appropriate uncertainty estimates, enhancing both environmental representation and decision-making reliability without reliance on external positioning systems.
   </div>
 </section>
 
@@ -212,6 +212,7 @@ CODE FOR CUIL
   </footer>
 </body>
 </html>
+
 
 
 
