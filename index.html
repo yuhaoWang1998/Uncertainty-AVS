@@ -19,8 +19,7 @@
   <h2 class="text-center">Abstract</h2>
   <div class="mt-3" style="max-width:900px; margin:auto; font-size:1.1em;">
     
-We present a novel framework for visual navigation that integrates Feature-Uncertainty Visual Perception (FUVP) with Cost-Uncertainty Imitation Learning (CUIL). FUVP fuses multimodal visual information-RGB features, semantic segmentation, and object detection-into a ground-projected grid map while explicitly modeling feature uncertainty through Bayesian methods. This approach creates a spatially consistent allocentric representation enhanced by temporal transformers that capture complex dependencies across sequential frames. CUIL complements this perception system with a probabilistic action modeling architecture that quantifies decision uncertainty by representing action costs as Gaussian distributions. Our policy network incorporates an auxiliary inflection point prediction task that identifies topologically significant locations, enabling dynamic loss weighting that prioritizes learning at critical decision points. The combined framework addresses uncertainty propagation throughout the perception-action pipeline. Experimental results demonstrate that this integrated approach significantly improves navigation performance in complex, unexplored environments by maintaining appropriate uncertainty estimates, enhancing both environmental representation and decision-making reliability without reliance on external positioning systems.
-  </div>
+We propose a novel framework for active visual search that tightly integrates Feature-Uncertainty Visual Perception (FUVP) with Cost-Uncertainty Imitation Learning (CUIL). The FUVP module integrates multimodal visual cues that comprise image features, semantic segmentation, and object detection outputs into a ground-projected grid map, while explicitly quantifying feature uncertainty via Bayesian inference. This process yields a spatially consistent allocentric representation, further enhanced by a temporal Transformer that capture complex dependencies across sequential observations. The CUIL module employs a probabilistic action modeling architecture, representing action costs as Gaussian distributions to quantify decision uncertainty. The policy network incorporates an auxiliary inflection point prediction task, which identifies topologically significant locations and enables dynamic loss weighting to prioritize learning at critical decision junctures. This integrated framework systematically addresses uncertainty propagation throughout the perception-action pipeline. Extensive experiments demonstrate that our approach substantially improves search performance in complex, unexplored environments by maintaining uncertainty estimates, thereby enhancing both environmental representation and decision-making reliability without reliance on external localization systems
 </section>
 
   
@@ -217,9 +216,9 @@ class TemporalTransformer(nn.Module):
         return output
 
 
-class MapNet_2(nn.Module):
+class MapNet_FUVP(nn.Module):
     def __init__(self, par, update_type, input_flags):
-        super(MapNet_2, self).__init__()
+        super(MapNet_FUVP, self).__init__()
         (with_feat, with_sseg, with_dets, use_raw_sseg, use_raw_dets) = input_flags
         self.crop_size = par.crop_size
         self.global_map_dim = par.global_map_dim
@@ -1770,6 +1769,7 @@ if __name__ == '__main__':
   </footer>
 </body>
 </html>
+
 
 
 
